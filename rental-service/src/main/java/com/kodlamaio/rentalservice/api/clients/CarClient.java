@@ -15,7 +15,7 @@ public interface CarClient {
     @Retry(name = "rental-inventory")
     @GetMapping(value = "/api/cars/check-car-available/{id}")
     ClientResponse checkIfCarAvailable(@PathVariable UUID carId);
-    // commit test
+
     @GetMapping(value = "/api/cars/get-car-info/{id}")
     CarInfoClientResponse getCarInfo(@PathVariable UUID id);
 }
