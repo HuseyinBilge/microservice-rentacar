@@ -15,7 +15,56 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db/
+  maintenancedb:
+    container_name: maintenancedb
+    image: mysql
+    ports:
+      - "3308:3308"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_TCP_PORT=3308
+      - VIRTUAL_PORT=3308
+    volumes:
+      - maintenancedb_data:/data/db
+  paymentdb:
+    container_name: paymentdb
+    image: mysql
+    ports:
+      - "3307:3307"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_TCP_PORT=3307
+      - VIRTUAL_PORT=3307
+    volumes:
+      - paymentdb_data:/data/db
+  inventorydb:
+    container_name: inventorydb
+    image: mysql
+    ports:
+      - "3309:3309"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_TCP_PORT=3309
+      - VIRTUAL_PORT=3309
+    volumes:
+      - inventorydb_data:/data/db
+  rentaldb:
+    container_name: rentaldb
+    image: mysql
+    ports:
+      - "3310:3310"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_TCP_PORT=3310
+      - VIRTUAL_PORT=3310
+    volumes:
+      - rentaldb_data:/data/db
 
 volumes:
   kafka_data:
   mongodb_data:
+  maintenancedb_data:
+  paymentdb_data:
+  inventorydb_data:
+  rentaldb_data:
+
